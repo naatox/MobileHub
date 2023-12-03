@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::controller(SessionController::class)->group(function () {
+    Route::post('login', 'login');
+    Route::post('logout', 'logout');
+
 });
+
+
+
+
+
+Route::get('login', function (){
+    return response()->json([
+        'message' => 'No se ha iniciado sesión'
+    ], 401);
+})->name('login');
