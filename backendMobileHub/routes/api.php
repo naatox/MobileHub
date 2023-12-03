@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\SessionController;
+use App\Http\Controllers\Account\UserController;
+use App\Http\Controllers\Account\Guest\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,10 @@ Route::controller(SessionController::class)->group(function () {
     Route::post('login', 'login');
     Route::post('logout', 'logout');
 
+});
+
+Route::controller(RegisterController::class)->group(function(){
+    Route::post('register', 'register');
 });
 
 
