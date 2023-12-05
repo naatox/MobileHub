@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@alumnos.ucn.cl',
             'rut' => '12345678-9',
             'password' => bcrypt('password'),
-            'yearBirth' => 1999,
+            'birthYear' => 1999,
 
          ]);
 

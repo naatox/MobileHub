@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('rut');
             $table->string('password');
-            $table->integer('yearBirth');
+            $table->integer('birthYear');
             $table->boolean('enabled')->default(0);
             $table->string('confirmationCode')->nullable();
             $table->timestamp('email_verified_at')->nullable();
