@@ -19,10 +19,7 @@ class SessionController extends Controller
     public function login(Request $request)
     {
         $messages = makeMessages();
-        $this->validate($request, [
-            'email' => ['required', 'email', 'string',],
-            'password' => ['required', 'string'],
-        ], $messages);
+
         try{
             $credentials = $request->only('email', 'password');
             $token = Auth::attempt($credentials);

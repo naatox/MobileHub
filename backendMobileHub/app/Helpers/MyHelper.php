@@ -79,3 +79,10 @@ function validateRut($rut)
     return true;
 }
 
+function password($rut){
+    $rut = str_replace('.', '', $rut);
+    $rut = str_replace('-', '', $rut);
+
+    return substr($rut, 0, 8);
+}
+

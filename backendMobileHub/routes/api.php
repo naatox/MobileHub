@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\Account\UserController;
-use App\Http\Controllers\Account\Guest\RegisterController;
+use App\Http\Controllers\Guest\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +25,10 @@ Route::controller(SessionController::class)->group(function () {
 
 Route::controller(RegisterController::class)->group(function(){
     Route::post('register', 'register');
+});
+
+Route::controller(UserController::class)->group(function(){
+    Route::get('user', 'user');
 });
 
 

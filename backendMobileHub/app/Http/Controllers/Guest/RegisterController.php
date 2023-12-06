@@ -36,12 +36,12 @@ class RegisterController extends Controller
                 ], 400);
             }
 
-
+            $password = password($request->rut);
             $user = User::create([
                 'fullName' => $request->fullName,
                 'email' => $request->email,
                 'rut' => $request->rut,
-                'password' => Hash::make($request->password),
+                'password' => Hash::make($password),
                 'birthYear' => $request->birthYear,
                 'enabled' => false,
             ]);
