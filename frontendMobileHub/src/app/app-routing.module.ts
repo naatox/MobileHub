@@ -1,22 +1,37 @@
-import { NgModule, Component } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './guest/register/register.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes, CanActivate } from '@angular/router';
 import { AuthGuard } from './shared/auth/auth.guard';
 
 const routes: Routes = [
-  {path: "", redirectTo: "home", pathMatch: "full"},
-  {path: "home", component: HomeComponent},
-  {path: "login", component: LoginComponent},
-  {path: "register",component: RegisterComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
-
+  {
+    path: '',
+    loadChildren: ()=> import('./pages/guest/home/home.module').then(m => m.HomePageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./pages/guest/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./pages/auth/dashboard/dashboard.module').then( m => m.DashboardPageModule), canActivate: [AuthGuard]
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/auth/profile/profile.module').then( m => m.ProfilePageModule)
+  }
 ];
-
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

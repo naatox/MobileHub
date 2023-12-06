@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LoginService } from 'src/app/services/auth/login.service';
+import { SessionService } from 'src/app/services/auth/session.service';
+import { Router } from '@angular/router';
 
-/**
- * Guardia de autenticación para proteger las rutas que requieren inicio de sesión.
- */
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
   /**
@@ -15,7 +13,7 @@ export class AuthGuard implements CanActivate {
    * @param loginService - Servicio de autenticación.
    * @param router - Facilita la navegación a través de la aplicación.
    */
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private loginService: SessionService, private router: Router) {}
 
   /**
    * Verifica si el usuario está autenticado antes de permitir el acceso a una ruta protegida.
@@ -33,7 +31,6 @@ export class AuthGuard implements CanActivate {
     }
     return this.router.navigateByUrl('/login');
   }
-
 
 
 

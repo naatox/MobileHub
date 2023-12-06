@@ -1,6 +1,7 @@
 {
-  "name": "ionic-app",
-  "app_id": "",
-  "type": "angular",
-  "integrations": {}
+  "name": "frontendMobileHub",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
 }

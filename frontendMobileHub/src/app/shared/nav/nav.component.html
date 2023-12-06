@@ -1,10 +1,17 @@
 
-<ion-header>
-  <ion-toolbar>
-    <ion-title> MobileHub </ion-title>
-    <ion-buttons slot="end">
-      <ion-button routerLink="/dashboard">Dashboard</ion-button>
-      <ion-button (click)="logout()" >Logout</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="dash()" tab="">
+      <ion-icon name="grid-outline"></ion-icon>
+      Menú
+    </ion-tab-button>
+    <ion-tab-button (click)="profile()" tab="">
+      <ion-icon name="person-circle-outline"></ion-icon>
+      Perfil
+    </ion-tab-button>
+    <ion-tab-button (click)="logout()" tab="">
+      <ion-icon name="log-out-outline"></ion-icon>
+      Logout
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
