@@ -1,0 +1,67 @@
+<ion-header no-border>
+	<ion-toolbar>
+  <ion-title>Perfil</ion-title>
+	</ion-toolbar>
+  <ion-toolbar class="p-s1">
+      <ion-list >
+        <div class="center">
+          <ion-label class="p-title">{{authUser.fullName}}</ion-label>
+        </div>
+
+
+        <ion-item>
+            <ion-label>Email
+              <p>{{authUser.email}}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>RUT
+              <p>{{authUser.rut}}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>Año de nacimiento
+              <p>{{authUser.birthYear}}</p>
+            </ion-label>
+        </ion-item>
+
+      </ion-list>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card class="custom-card">
+    <ion-card-content >
+
+      <ion-list>
+        <ion-item>
+          <h2>Editar Perfil</h2>
+          <p>Edita nombre, email yo tu año de nacimiento</p>
+
+          <ion-icon name="create-outline">
+          </ion-icon>
+        </ion-item>
+      </ion-list>
+
+
+    </ion-card-content>
+
+  </ion-card>
+  <ion-card class="custom-card">
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <h2>Cambiar contraseña</h2>
+          <p>Cambia tu contraseña, recuerda que esta debe ser valida!</p>
+          <ion-icon name="lock-closed-outline">
+            <button></button>
+          </ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button class="a" color="secondary" expand="block" routerLink="edit">Editar Datos</ion-button>
+
+</ion-content>
+

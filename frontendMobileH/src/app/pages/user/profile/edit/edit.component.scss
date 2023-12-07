@@ -1,0 +1,12 @@
+div.icon{
+  position: fixed; /* Establece la posición fija para que el ícono se mantenga en la misma posición incluso al desplazarse por la página */
+  top: 10px; /* Ajusta la posición vertical según sea necesario */
+  right: 10px; /* Ajusta la posición horizontal para colocar el ícono en la esquina derecha */
+}
+div{
+  text-align: center;
+}
+
+ion-icon{
+  font-size: 35px;
+}
