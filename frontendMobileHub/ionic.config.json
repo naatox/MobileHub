@@ -1,7 +1,0 @@
-{
-  "name": "frontendMobileHub",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
