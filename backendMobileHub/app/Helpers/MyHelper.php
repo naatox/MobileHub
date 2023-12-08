@@ -25,6 +25,7 @@ function makeMessages()
 
         'password.required' => 'La contraseña es requerida',
         'password.min' => 'La contraseña debe tener al menos 8 caracteres',
+        'password.confirmed' => 'Las contraseñas no coinciden',
 
         'birthYear.required' => 'El año de nacimiento es requerido',
         'birthYear.integer' => 'El año de nacimiento debe ser un numero',

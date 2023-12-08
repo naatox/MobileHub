@@ -16,14 +16,20 @@ export class UserService {
     });
     return this.http.get(`${this.apiUrl}/user`,{headers: headers})
   }
-  updatePassword(data: any) {}
-
-  edituser(data: any) {
+  updatePassword(data: any, id: number) {
     const tokenUser = localStorage.getItem('token');
     const headers = new HttpHeaders({
       Authorization: 'Bearer ' + tokenUser
     });
-    return this.http.put(`${this.apiUrl}/edit`,data,{headers: headers})
+    return this.http.put(`${this.apiUrl}/password`,data,{headers: headers, params: {id: id}})
+  }
+
+  edituser(data: any, id: number) {
+    const tokenUser = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + tokenUser
+    });
+    return this.http.put(`${this.apiUrl}/edit`,data,{headers: headers, params: {id: id}})
 
   }
 

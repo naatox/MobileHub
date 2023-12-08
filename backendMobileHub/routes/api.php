@@ -29,6 +29,8 @@ Route::controller(RegisterController::class)->group(function(){
 
 Route::controller(UserController::class)->group(function(){
     Route::get('user', 'user');
+    Route::put('edit', 'editUser');
+    Route::put('password', 'updatePass');
 });
 
 

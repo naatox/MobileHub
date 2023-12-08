@@ -38,9 +38,10 @@
           <h2>Editar Perfil</h2>
           <p>Edita nombre, email yo tu año de nacimiento</p>
 
-          <ion-icon name="create-outline">
-          </ion-icon>
+          <ion-button color="secondary" expand="block" routerLink="edit">Editar Datos <ion-icon name="create-outline"></ion-icon></ion-button>
+
         </ion-item>
+
       </ion-list>
 
 
@@ -51,17 +52,17 @@
     <ion-card-content>
       <ion-list>
         <ion-item>
-          <h2>Cambiar contraseña</h2>
+          <h2>Contraseña</h2>
           <p>Cambia tu contraseña, recuerda que esta debe ser valida!</p>
-          <ion-icon name="lock-closed-outline">
-            <button></button>
-          </ion-icon>
+
+            <ion-button class="a" color="secondary" expand="block" routerLink='edit-password'>Cambiar contraseña <ion-icon name="lock-closed-outline"></ion-icon></ion-button>
+
+
         </ion-item>
       </ion-list>
     </ion-card-content>
   </ion-card>
 
-  <ion-button class="a" color="secondary" expand="block" routerLink="edit">Editar Datos</ion-button>
 
 </ion-content>
 

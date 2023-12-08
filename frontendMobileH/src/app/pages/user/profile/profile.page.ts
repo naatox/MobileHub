@@ -27,10 +27,7 @@ export class ProfilePage implements OnDestroy, OnInit {
       }
     )
   }
-  a(){
-    console.log("a");
-    this.router.navigate(['/edit-profile']);
-  }
+
   ngOnDestroy() {
     this.authUser = [];
   }

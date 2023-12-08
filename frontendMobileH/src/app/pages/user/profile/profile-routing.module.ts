@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProfilePage } from './profile.page';
 import { EditComponent } from './edit/edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PasswordComponent } from './password/password.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
   {
     path: 'edit',
     component: EditComponent
+
+  },
+  {
+    path: 'edit-password',
+    component: PasswordComponent
 
   }
 

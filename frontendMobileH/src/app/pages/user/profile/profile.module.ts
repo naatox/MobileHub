@@ -8,6 +8,7 @@ import { ProfilePageRoutingModule } from './profile-routing.module';
 
 import { ProfilePage } from './profile.page';
 import { EditComponent } from './edit/edit.component';
+import { PasswordComponent } from './password/password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -18,6 +19,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProfilePageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [ProfilePage, EditComponent]
+  declarations: [ProfilePage, EditComponent, PasswordComponent]
 })
 export class ProfilePageModule {}
