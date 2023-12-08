@@ -5,20 +5,17 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-button (click)="test()">Ver Proyectos</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-button>Ver Proyectos</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-button>Ver Proyectos</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-button>Ver Proyectos</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-button>Ver Proyectos</ion-button>
-    </ion-item>
-  </ion-list>
+
+
+    <ion-card *ngFor="let proyect of repos">
+      <ion-card-header>
+        <ion-card-title>{{proyect.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{proyect.description}}</p>
+      </ion-card-content>
+      <ion-button (click)="repo(proyect.name)" >Ver Repositorio</ion-button>
+    </ion-card>
+
+
+
