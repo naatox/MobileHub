@@ -39,7 +39,6 @@ function makeMessages()
 }
 
 function digit($rut) {
-    $rut = preg_replace('/[^0-9]/', '', $rut);
     $rutNumeros = (int)substr($rut, 0, -1);
     $rutArray = str_split(strrev($rutNumeros));
 
@@ -87,3 +86,14 @@ function password($rut){
     return substr($rut, 0, 8);
 }
 
+function rutFormat($rut) {
+
+
+
+    $numero = substr($rut, 0, -1);
+    $verificador = substr($rut, -1);
+
+    $numero_formateado = number_format($numero, 0, '', '.');
+
+    return $numero_formateado . '-' . $verificador;
+}

@@ -11,9 +11,8 @@ class RegisterController extends Controller
 {
     public function register(Request $request)
     {
-        $digit = digit($request->rut);
         $rutDigits = substr($request->rut, -1);
-
+        $digit = digit($request->rut);
         if($digit != $rutDigits){
             return response()->json([
                 'message' => 'El rut no es válido',
@@ -33,16 +32,7 @@ class RegisterController extends Controller
             'birthYear' => ['required', 'integer', 'min:1900', 'max:2023'],
         ],$messages);
         try{
-            if(validateRut($request->rut) == false){
-                return response()->json([
-                    'message' => 'El RUT no es de la forma 12.345.678-9',
-                ], 400);
-            }
-            if($request->idNumber == '0000000000'){
-                return response()->json([
-                    'message' => 'El rut no es válido',
-                ], 400);
-            }
+            $request->rut = rutFormat($request->rut);
 
             $password = password($request->rut);
             $user = User::create([
