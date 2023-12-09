@@ -57,7 +57,7 @@ composer dump-autoload
 
 ```
 Luego de copiado el archivo .ENV ingresa tus preferencias en el archivo.
-- DB_PORT => Puerto (Por defecto 3306, cambiar a 3306 o según su máquina).
+- DB_PORT => Puerto (Por defecto 3306, cambiar según su preferencia).
 - DB_DATABASE => Nombre de la base de datos.
 - DB_PASSWORD => Contraseña del proveedor de la base.
 
