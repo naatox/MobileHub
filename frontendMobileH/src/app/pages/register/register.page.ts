@@ -17,6 +17,11 @@ export class RegisterPage {
   birthYear: number = 0;
   rut: string = "";
   form: FormGroup;
+  /**
+   * Constructor del componente.
+   * @param regService Servicio de registro de usuarios.
+   * @param router Servicio de enrutamiento para la navegación entre páginas.
+   */
   constructor(private regService: SessionService, private router: Router) {
     this.form = new FormGroup({
       fullName: new FormControl(),
@@ -27,10 +32,10 @@ export class RegisterPage {
 
    }
 
-
+   /**
+   * Método invocado al enviar el formulario de registro.
+   */
   async onSubmit(){
-
-    console.log(this.form.value);
     this.regService.register(this.form.value).subscribe
     ((data) => {
       console.log(data);
@@ -41,7 +46,6 @@ export class RegisterPage {
       }, 3000);
 
     },(error) => {
-      console.log(error);
 
       this.message = error.error.message;
 

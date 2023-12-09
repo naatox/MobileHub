@@ -17,6 +17,12 @@ export class EditComponent implements OnInit {
   email: string = "";
   birthYear: number = 0;
   form: FormGroup;
+
+  /**
+   * Constructor del componente.
+   * @param userService Servicio de usuario para realizar operaciones relacionadas con el perfil del usuario.
+   * @param router Servicio de enrutamiento para navegar entre páginas.
+   */
   constructor(private userService: UserService, private router: Router) {
 
     this.form = new FormGroup({
@@ -24,13 +30,12 @@ export class EditComponent implements OnInit {
       email: new FormControl(this.user.email),
       birthYear: new FormControl(this.user.birthYear),
     });
-
-
-
-
-
    }
 
+    /**
+   * Método que se ejecuta al inicializar el componente.
+   * Obtiene los datos del usuario para prellenar el formulario de edición.
+   */
    ngOnInit() {
       this.userService.getUser().subscribe((data: any) => {
         this.user = data;
@@ -44,9 +49,11 @@ export class EditComponent implements OnInit {
       });
    }
 
-
+   /**
+   * Método invocado al enviar el formulario de edición de perfil.
+   * Realiza la llamada al servicio para editar los datos del usuario.
+   */
   async onSubmit(){
-    console.log(this.form.value);
     if(this.form.value.fullName == null){
       this.form.value.fullName = this.user.fullName;
     }
@@ -66,17 +73,13 @@ export class EditComponent implements OnInit {
       }, 3000);
 
     },(error) => {
-      console.log(error);
-
       this.message = error.error.message;
-
-
-    }
-
-
-
-    );
+    });
   }
+
+  /**
+   * Método para cancelar la edición y volver a la página de perfil.
+   */
   cancel(){
     this.router.navigate(['user/profile']);
   }

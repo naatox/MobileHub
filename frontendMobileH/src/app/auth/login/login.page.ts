@@ -15,6 +15,11 @@ export class LoginPage  {
   email: string = "";
   password: string = "";
   form: FormGroup;
+  /**
+   * Constructor del componente.
+   * @param logService Servicio de sesión para la autenticación.
+   * @param router Servicio de enrutamiento para la navegación entre páginas.
+   */
   constructor(private logService: SessionService, private router: Router) {
     this.form = new FormGroup({
       email: new FormControl(),
@@ -23,7 +28,9 @@ export class LoginPage  {
 
    }
 
-
+  /**
+   * Método invocado al enviar el formulario de inicio de sesión.
+   */
   async onSubmit(){
     const alert = document.getElementById('alert');
     const response = await this.logService.login(this.form.value).subscribe(
@@ -48,6 +55,10 @@ export class LoginPage  {
       });;
 
   }
+  /**
+   * Método para cerrar sesión.
+   * Invoca al servicio de cierre de sesión (logout).
+   */
   logout(){
     this.logService.logout();
   }

@@ -16,19 +16,24 @@ export class PasswordComponent  implements OnInit {
   password: string = "";
   password_confirmation: string = "";
   form: FormGroup;
+
+  /**
+   * Constructor del componente.
+   * @param userService Servicio de usuario para realizar operaciones relacionadas con la contraseña.
+   * @param router Servicio de enrutamiento para navegar entre páginas.
+   */
   constructor(private userService: UserService, private router: Router) {
 
     this.form = new FormGroup({
       password: new FormControl(),
       password_confirmation: new FormControl(),
     });
-
-
-
-
-
    }
 
+   /**
+   * Método que se ejecuta al inicializar el componente.
+   * Obtiene los datos del usuario para obtener su identificador único.
+   */
    ngOnInit() {
       this.userService.getUser().subscribe((data: any) => {
         this.user = data;
@@ -37,10 +42,11 @@ export class PasswordComponent  implements OnInit {
       });
    }
 
-
+   /**
+   * Método invocado al enviar el formulario de cambio de contraseña.
+   * Realiza la llamada al servicio para actualizar la contraseña del usuario.
+   */
   async onSubmit(){
-    console.log(this.form.value);
-
 
     this.userService.updatePassword(this.form.value,this.id).subscribe
     ((data: any) => {
@@ -51,17 +57,15 @@ export class PasswordComponent  implements OnInit {
       }, 3000);
 
     },(error) => {
-      console.log(error);
 
       this.message = error.error.message;
 
-
-    }
-
-
-
-    );
+    });
   }
+
+  /**
+   * Método para cancelar el cambio de contraseña y volver a la página de perfil.
+   */
   cancel(){
     this.router.navigate(['user/profile']);
   }

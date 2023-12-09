@@ -12,24 +12,37 @@ export class RepoComponent  implements OnInit {
   proyectName: string = "";
   repo : any = [];
   commits: any = [];
+
+  /**
+   * Constructor del componente.
+   * @param proyect Servicio para obtener detalles de proyectos.
+   * @param route Servicio para acceder a los parámetros de la URL.
+   */
   constructor(private proyect: ProyectsService, private route: ActivatedRoute) { }
 
+  /**
+   * Método que se ejecuta al inicializar el componente.
+   */
   ngOnInit() {
-    console.log("repo");
     this.getRepo();
     this.getCommits();
   }
 
+  /**
+   * Método que obtiene la información del repositorio.
+   */
   getRepo(){
     this.proyectName= this.route.snapshot.params['name'];
     this.proyect.getRepo(this.proyectName).subscribe((data: any) => {
-      console.log(data);
       this.repo = data;
     });
   }
+
+  /**
+   * Método que obtiene la lista de commits del repositorio.
+   */
   getCommits(){
     this.proyect.getCommits(this.proyectName).subscribe((data: any) => {
-      console.log(data);
       this.commits = data;
 
     });
