@@ -38,9 +38,9 @@ function makeMessages()
 
 }
 
-function calcularDigitoVerificador($rut) {
-    $rutNumeros = substr($rut, 0, -2);
-
+function digit($rut) {
+    $rut = preg_replace('/[^0-9]/', '', $rut);
+    $rutNumeros = (int)substr($rut, 0, -1);
     $rutArray = str_split(strrev($rutNumeros));
 
     $serie = [2, 3, 4, 5, 6, 7, 2, 3, 4, 5, 6, 7];

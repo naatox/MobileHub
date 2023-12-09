@@ -11,6 +11,14 @@ class RegisterController extends Controller
 {
     public function register(Request $request)
     {
+        $digit = digit($request->rut);
+        $rutDigits = substr($request->rut, -1);
+
+        if($digit != $rutDigits){
+            return response()->json([
+                'message' => 'El rut no es válido',
+            ], 400);
+        }
 
         $messages = makeMessages();
         $this->validate($request,[
