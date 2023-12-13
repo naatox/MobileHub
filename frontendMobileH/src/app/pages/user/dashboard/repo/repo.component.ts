@@ -12,6 +12,7 @@ export class RepoComponent  implements OnInit {
   proyectName: string = "";
   repo : any = [];
   commits: any = [];
+  commitsQty: number = 0;
 
   /**
    * Constructor del componente.
@@ -34,6 +35,7 @@ export class RepoComponent  implements OnInit {
   getRepo(){
     this.proyectName= this.route.snapshot.params['name'];
     this.proyect.getRepo(this.proyectName).subscribe((data: any) => {
+      data.updated_at = new Date(data.created_at).toLocaleDateString();
       this.repo = data;
     });
   }
@@ -44,7 +46,7 @@ export class RepoComponent  implements OnInit {
   getCommits(){
     this.proyect.getCommits(this.proyectName).subscribe((data: any) => {
       this.commits = data;
-
+      this.commitsQty = this.commits.length;
     });
   }
 

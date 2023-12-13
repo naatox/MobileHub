@@ -1,18 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Repositorio: {{repo.name}}</ion-title>
+
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content >
 
 
     <ion-card >
-      <ion-card-header>
-        <ion-card-title>Descripción</ion-card-title>
-      </ion-card-header>
+
       <ion-card-content>
-        <p>{{repo.description}}</p>
+        <ion-label>Descripción:
+          <p>{{repo.description}}</p>
+        </ion-label>
+        <ion-label>Cantidad de commits:
+          <p>{{commitsQty}}</p>
+        </ion-label>
+
       </ion-card-content>
     </ion-card>
     <div>
@@ -21,14 +27,16 @@
     </div>
     <ion-card *ngFor="let commit of commits">
       <ion-card-content>
-        <li>
-          Autor: {{commit.commit.author.name}}
-        </li>
-        <li>
-          Mensaje: {{commit.commit.message}}
-        </li>
-        <li>
-          Fecha: {{commit.commit.author.date}}
+        <ion-label> Autor:
+          <p>{{commit.commit.author.name}}</p>
+        </ion-label>
+        <ion-label>Mensaje:
+          <p>{{commit.commit.message}}</p>
+        </ion-label>
+        <ion-label> Fecha:
+          <p>{{commit.commit.author.date}}</p>
+        </ion-label>
+
       </ion-card-content>
 
     </ion-card>

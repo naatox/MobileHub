@@ -12,9 +12,21 @@
         <ion-card-title>{{proyect.name}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <p>{{proyect.description}}</p>
+        <ion-label>Fecha de creación:
+          <p>{{proyect.created_at}}</p>
+        </ion-label>
+        <ion-label>Última modificación:
+          <p>{{proyect.updated_at}}</p>
+        </ion-label>
+        <ion-label>Descripción:
+          <p>{{proyect.description}}</p>
+        </ion-label>
+        <ion-label>Cantidad de commits:
+          <p>{{proyect.commitsQty}}</p>
+        </ion-label>
+
       </ion-card-content>
-      <ion-button (click)="repo(proyect.name)" >Ver Repositorio</ion-button>
+      <ion-button (click)="repo(proyect.name)" >Ver Commits</ion-button>
     </ion-card>
 
 

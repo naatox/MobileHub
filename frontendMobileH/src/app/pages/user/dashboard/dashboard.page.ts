@@ -10,6 +10,7 @@ import { ProyectsService } from 'src/app/services/github/proyects.service';
 export class DashboardPage implements OnInit  {
   repos: any = [];
 
+
   /**
    * Constructor del componente.
    * @param proyects Servicio para obtener detalles de los repositorios.
@@ -21,9 +22,8 @@ export class DashboardPage implements OnInit  {
    * Método que se ejecuta al inicializar el componente.
    */
   ngOnInit(){
-    this.proyects.getRepos().subscribe((data: any) => {
-      this.repos = data;
-    });
+    this.getRepos();
+
   }
 
   /**
@@ -33,6 +33,37 @@ export class DashboardPage implements OnInit  {
  repo(name: string){
   this.router.navigate(['user/dashboard/repo', name]);
 
+ }
+
+
+ getRepos(){
+
+  this.proyects.getRepos().subscribe((data: any) => {
+    data.forEach((element: any) => {
+      this.proyects.getCommits(element.name).subscribe((commits: any) => {
+        element.commitsQty = commits.length;
+      });
+    });
+
+    this.repos = data.sort((a:any, b:any) => {
+      const fechaA = new Date(a.updated_at);
+      const fechaB = new Date(b.updated_at);
+
+      return fechaB.getTime() - fechaA.getTime();
+    });
+    console.log(this.repos);
+  });
 
  }
+
+
+ compareDate(a: any, b: any){
+    if (a.created_at < b.created_at){
+      return 1;
+    }
+    if (a.created_at > b.created_at){
+      return -1;
+    }
+    return 0;
+}
 }
