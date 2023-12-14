@@ -2,11 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { FormGroup, FormBuilder, Validators,FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ProfilePage } from '../profile.page';
+
 
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
+  providers: [ProfilePage]
+
+
 })
 export class EditComponent implements OnInit {
   user: any = [];
@@ -23,7 +28,7 @@ export class EditComponent implements OnInit {
    * @param userService Servicio de usuario para realizar operaciones relacionadas con el perfil del usuario.
    * @param router Servicio de enrutamiento para navegar entre páginas.
    */
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService, private router: Router, private location: ProfilePage) {
 
     this.form = new FormGroup({
       fullName: new FormControl(),
@@ -68,8 +73,7 @@ export class EditComponent implements OnInit {
     ((data: any) => {
       this.success = data.message + ' Redirigiendo al perfil';
       setTimeout(() => {
-
-        this.router.navigate(['user/profile']);
+        this.router.navigateByUrl('user/profile');
       }, 3000);
 
     },(error) => {

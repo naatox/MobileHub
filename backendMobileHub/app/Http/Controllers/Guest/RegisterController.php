@@ -21,17 +21,23 @@ class RegisterController extends Controller
 
         $messages = makeMessages();
         $this->validate($request,[
-            'fullName' => ['required', 'string', 'max:255'],
+            'fullName' => ['required', 'string','min:10', 'max:150'],
             'email' => ['required', 'string','email', 'max:255', 'unique:users'
             ,function ($attribute, $value, $fail) {
                 if (strpos($value, '@alumnos.ucn.cl') === false && strpos($value, '@ucn.cl') === false  && strpos($value, '@ce.ucn.cl') === false  && strpos($value, '@disc.ucn.cl') === false) {
                     $fail('El email debe ser de la forma @alumnos.ucn.cl o @ucn.cl');
                 }
             }],
-            'rut' => ['required', 'max:255', 'min:0', 'unique:users'],
+            'rut' => ['required', 'max:255', 'min:0'],
             'birthYear' => ['required', 'integer', 'min:1900', 'max:2023'],
         ],$messages);
         try{
+            $rutFormat = rutFormat($request->rut);
+            if(User::where('rut', $rutFormat)->exists()){
+                return response()->json([
+                    'message' => 'El rut ya existe',
+                ], 400);
+            }
             $request->rut = rutFormat($request->rut);
 
             $password = password($request->rut);

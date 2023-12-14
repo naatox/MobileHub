@@ -18,10 +18,13 @@ function makeMessages()
 
         'fullName.required' => 'El nombre es requerido',
         'fullName.string' => 'El nombre debe ser un string',
+        'fullName.min' => 'El nombre debe tener al menos 10 caracteres',
+        'fullName.max' => 'El nombre debe tener un maximo de 150 caracteres',
 
         'rut.required' => 'El rut es requerido',
         'rut.integer' => 'El rut debe ser un numero',
         'rut.max' => 'El rut debe tener un maximo de 10 digitos',
+        'rut.unique' => 'El rut ya existe',
 
         'password.required' => 'La contraseña es requerida',
         'password.min' => 'La contraseña debe tener al menos 8 caracteres',

@@ -37,6 +37,7 @@ export class ProfilePage implements OnDestroy, OnInit {
         this.authUser = res;
       },
       (err) => {
+        console.log(err);
       }
     )
   }

@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProfilePageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [ProfilePage, EditComponent, PasswordComponent]
+  declarations: [ProfilePage, EditComponent, PasswordComponent],
+
 })
 export class ProfilePageModule {}
