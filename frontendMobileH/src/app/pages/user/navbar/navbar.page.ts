@@ -21,6 +21,7 @@ export class NavbarPage{
    * Invoca el servicio de sesión para realizar la operación de cierre de sesión.
    */
   logout(){
+    alert("Sesión cerrada");
     this.logservice.logout();
   }
 
