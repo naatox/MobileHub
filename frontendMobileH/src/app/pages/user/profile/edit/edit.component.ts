@@ -73,6 +73,7 @@ export class EditComponent implements OnInit {
     ((data: any) => {
       this.success = data.message + ' Redirigiendo al perfil';
       setTimeout(() => {
+        this.location.ngOnInit();
         this.router.navigateByUrl('user/profile');
       }, 3000);
 
