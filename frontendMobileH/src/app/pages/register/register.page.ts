@@ -38,7 +38,6 @@ export class RegisterPage {
   async onSubmit(){
     this.regService.register(this.form.value).subscribe
     ((data) => {
-      console.log(data);
       this.success = data.message + ' Redirigiendo a login';
       setTimeout(() => {
 

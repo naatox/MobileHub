@@ -39,7 +39,6 @@ export class DashboardPage implements OnInit  {
  getRepos(){
 
   this.proyects.getRepos().subscribe((data: any) => {
-    console.log(data);
     data.forEach((element: any) => {
       this.proyects.getCommits(element.name).subscribe((commits: any) => {
         element.commitsQty = commits.length;
@@ -52,7 +51,6 @@ export class DashboardPage implements OnInit  {
 
       return fechaB.getTime() - fechaA.getTime();
     });
-    console.log(this.repos);
   });
 
  }
