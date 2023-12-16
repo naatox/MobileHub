@@ -35,6 +35,12 @@ export class DashboardPage implements OnInit  {
 
  }
 
+  /**
+   * Obtiene los repositorios del usuario Dizkm8.
+   * Actualiza la propiedad `repos` con los repositorios obtenidos.
+   * Ordena los repositorios por fecha de actualización.
+   * Obtiene la cantidad de commits de cada repositorio.
+   */
 
  getRepos(){
 
@@ -55,14 +61,4 @@ export class DashboardPage implements OnInit  {
 
  }
 
-
- compareDate(a: any, b: any){
-    if (a.created_at < b.created_at){
-      return 1;
-    }
-    if (a.created_at > b.created_at){
-      return -1;
-    }
-    return 0;
-}
 }
