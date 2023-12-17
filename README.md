@@ -19,6 +19,8 @@ Descarga del proyecto
 ================================================================================================================
 ## Programas a instalar
 
+Instala [Visual Studio Code](https://code.visualstudio.com/Download)
+
 Instala [GIT](https://git-scm.com/downloads)
 
 Instala [XAMPP](https://www.apachefriends.org/es/index.html) con PHP V8.1.
